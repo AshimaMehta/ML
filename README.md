@@ -1,16 +1,3 @@
-FROM centos
-MAINTAINER ashima mehta <ashimamehta@outlook.in>
-RUN yum update -y
-RUN yum install wget -y
-RUN yum install python36 -y
-RUN yum install python3-pip
-RUN pip3 install --upgrade pip
-RUN pip3 install tensorflow==2.0.0
-RUN pip3 install keras
-WORKDIR /model
-COPY mnistdata.py /model
-RUN python3 mnistdata.py
-CMD python3 mlops.py
 
 
 
@@ -111,9 +98,9 @@ print(mod)
 import smtplib
 import os
 if pred1[1]*100 >= 95:
-    email = '269mehta@gmail.com' # Your email
+    email = 'abc@gmail.com' # Your email
     password = '************' # Your email account password
-    send_to_email = '270mehta@gmail.com' # Who you are sending the message to
+    send_to_email = 'abc@gmail.com' # Who you are sending the message to
     message1 = str(Accuracy) # The message in the email
     message2 = mod
     server = smtplib.SMTP('smtp.gmail.com', 587) # Connect to the server
