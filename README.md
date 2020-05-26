@@ -110,5 +110,6 @@ if pred1[1]*100 >= 95:
     server.sendmail(email, send_to_email , message2)
     server.quit() # Logout of the email server
 else:
-    os.system ('curl --user "admin:root" )
+    os.system ('curl --user "admin:root",http://192.168.99.101:8080/job/Run%20code%20in%20Docker/build?token=monitoring')
+
 
