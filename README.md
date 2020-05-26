@@ -112,3 +112,9 @@ if pred1[1]*100 >= 95:
 else:
     os.system ('curl --user "admin:root" )
 
+
+
+from keras.datasets import mnist
+(X_train, y_train), (X_test, y_test) = mnist.load_data()
+
+
