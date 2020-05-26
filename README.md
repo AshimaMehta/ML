@@ -12,8 +12,8 @@ from keras.datasets import mnist
 # In[2]:
 
 
-X_train = X_train.reshape(60000,28,28,1)
-X_test = X_test.reshape(10000,28,28,1)
+X_train = X_train.reshape(6000,24,24,1)
+X_test = X_test.reshape(1000,24,24,1)
 
 
 # In[3]:
@@ -29,7 +29,7 @@ y_test = to_categorical(y_test)
 
 import random
 from keras.models import Sequential
-from keras.optimizers import Adam ,RMSprop ,SGD ,Nadam ,Adamax
+from keras.optimizers import Adam ,RMSprop ,SGD ,Nadam 
 from keras.layers import Dense, Conv2D, Flatten
 from keras.layers import MaxPool2D
 
@@ -46,13 +46,13 @@ model = Sequential()
 
 x = random.randint(1,5)
 for i in range(x):
-    model.add(Conv2D(filters=random.randint(2,10),kernel_size=random.choice(((2,2),(3,3),(4,4),(5,5),(6,6))), activation="relu", input_shape=(28,28,1)))
+    model.add(Conv2D(filters=random.randint(2,10),kernel_size=random.choice(((2,2),(3,3),(4,4),(5,5),(6,6))), activation="relu", input_shape=(24,24,1)))
 
 model.add(Flatten())
 
 model.add(Dense(units=10,activation=random.choice(('relu','sigmoid','softmax'))))
 
-model.compile(optimizer=random.choice(('RMSprop','Adam','SGD','Nadam','Adamax')), loss='categorical_crossentropy', metrics=['accuracy'])
+model.compile(optimizer=random.choice(('RMSprop','Adam','SGD','Nadam')), loss='categorical_crossentropy', metrics=['accuracy'])
 
 
 # In[ ]:
@@ -71,7 +71,7 @@ model.compile(optimizer=random.choice(('RMSprop','Adam','SGD','Nadam','Adamax'))
 
 
 
-model.fit(X_train, y_train,epochs=random.randint(1,5))
+model.fit(X_train, y_train,epochs=random.randint(1,4))
 
 
 # In[8]:
@@ -110,5 +110,5 @@ if pred1[1]*100 >= 95:
     server.sendmail(email, send_to_email , message2)
     server.quit() # Logout of the email server
 else:
-    os.system ('curl --user "admin:root" http://192.168.99.101:8080/job/Run%20code%20in%20Docker/build?token=monitoring')
+    os.system ('curl --user "admin:root" )
 
