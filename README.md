@@ -113,3 +113,7 @@ else:
     os.system ('curl --user "admin:root",http://192.168.99.101:8080/job/Run%20code%20in%20Docker/build?token=monitoring')
 
 
+
+from keras.datasets import mnist
+(X_train, y_train), (X_test, y_test) = mnist.load_data()
+
